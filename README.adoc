@@ -1,0 +1,40 @@
+= code to configure host1
+Nick Hardiman 
+:source-highlighter: highlight.js
+:revdate: 19-07-2022
+
+These files turn a RHEL server into a KVM hypervisor and ansible control node.
+Starting point: 
+
+* a workstation, like a laptop
+* a machine (a physical machine) with a fresh install of RHEL. Minimal install, no ansible, no git, no nothing much.
+
+
+
+== run
+
+. Install RHEL on host1.
+. Log into host1. My user account is fine, the Ansible playbook will ask for the root password.
+. Download and run this script
+```
+curl -o - https://raw.githubusercontent.com/nickhardiman/machine-host1/main/machine-host1-configure.sh | bash -x
+```
+
+== what is host1
+
+Host2 is one of the PCs in my home lab.
+It hosts a bunch of VMs (virtual machines). 
+The physical machine host1 will be described in mind-numbing detail at https://hardiman.consulting/, assuming I ever have free time ever again.
+
+```
+my workstation --> host1 <-- GitHub 
+```
+
+* machine-host1-configure.sh: the shell script to kick off the setup process, run on host1.
+* machine-host1-configure.yml: Ansible playbook for host1, run by the script
+* machine-workstation-configure.sh: possibly useless shell script to run on my workstation
+
+== todo
+
+Way too much.
+
